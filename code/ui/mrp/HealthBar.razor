@@ -1,0 +1,33 @@
+﻿@using Sandbox.UI;
+@using Sandbox;
+
+<style>
+	HealthBar {
+		background-color: black;
+	}
+
+	.fill {
+		height: 100%;
+		background-color: red;
+	}
+</style>
+<root>
+	<div class="fill" style="width: @(GetHealth())%">
+		@(GetHealth())
+	</div>
+</root>
+
+@code {
+	public string GetHealth()
+	{
+		var player = Game.LocalPawn;
+		if (player == null) return "";
+		return player.Health.ToString();
+	}
+
+	protected override int BuildHash()
+	{
+		return Sandbox.Time.Now.GetHashCode();
+	}
+
+}

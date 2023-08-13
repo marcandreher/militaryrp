@@ -11,6 +11,11 @@ partial class SandboxGame : GameManager
 			// Create the HUD
 			_ = new SandboxHud();
 		}
+		else if(Game.IsClient)
+		{
+			Log.Info( "[MRP Dev] Client side loaded" );
+			
+		}
 	}
 
 	public override void ClientJoined( IClient cl )
@@ -18,9 +23,14 @@ partial class SandboxGame : GameManager
 		base.ClientJoined( cl );
 		var player = new SandboxPlayer( cl );
 
+		
+		
+
+
 		cl.Pawn = player;
 
 		player.Respawn();
+		Log.Info( "[MRP Dev] Test Model" + Cloud.Model( "sboxmp.stalker_dolg" ).Name );
 	}
 
 	protected override void OnDestroy()

@@ -1,10 +1,13 @@
 ﻿using Sandbox;
+using Sandbox.mrp;
 using System.Numerics;
 
 partial class SandboxPlayer : Player
 {
 	private TimeSince timeSinceDropped;
 	private TimeSince timeSinceJumpReleased;
+	public PlayerJob playerJob { get; set; }
+	public int money { get; set; }
 
 	private DamageInfo lastDamage;
 
@@ -29,13 +32,14 @@ partial class SandboxPlayer : Player
 	/// </summary>
 	public SandboxPlayer( IClient cl ) : this()
 	{
-		// Load clothing from client data
-		Clothing.LoadFromClient( cl );
+		
 	}
 
 	public override void Respawn()
 	{
-		SetModel( "models/citizen/citizen.vmdl" );
+		Model m = Cloud.Model( Config.startModal );
+		// Set start Modal
+		SetModel( m.Name );
 
 		Controller = new WalkController
 		{
@@ -59,8 +63,6 @@ partial class SandboxPlayer : Player
 		Inventory.Add( new PhysGun(), true );
 		Inventory.Add( new GravGun() );
 		Inventory.Add( new Tool() );
-		Inventory.Add( new Pistol() );
-		Inventory.Add( new MP5() );
 		Inventory.Add( new Flashlight() );
 		Inventory.Add( new Fists() );
 

@@ -1,9 +1,9 @@
 {
-  "Title": "Sandbox Game",
+  "Title": "MilitaryRP",
   "Type": "game",
-  "Org": "facepunch",
-  "Ident": "sandbox",
-  "Tags": "",
+  "Org": "marcandreher",
+  "Ident": "militaryrp",
+  "Tags": "rp roleplay",
   "Schema": 1,
   "HasAssets": true,
   "AssetsPath": "",
@@ -11,7 +11,9 @@
   "MenuResources": "/menu/*",
   "HasCode": true,
   "CodePath": "code",
-  "PackageReferences": [],
+  "PackageReferences": [
+    "sboxmp.stalker_dolg"
+  ],
   "EditorReferences": null,
   "Metadata": {
     "MapList": [

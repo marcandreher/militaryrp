@@ -15,9 +15,9 @@
 				{
 					var tr = Trace.Ray( Owner.EyePosition, Owner.EyePosition + Owner.EyeRotation.Forward * 4000 ).Ignore( Owner ).Run();
 
-					if ( tr.Entity is ModelEntity ent && !string.IsNullOrEmpty( ent.GetModelName() ) )
+					if ( tr.Entity is Prop prop && !string.IsNullOrEmpty( prop.GetModelName() ) )
 					{
-						modelToShoot = ent.GetModelName();
+						modelToShoot = prop.GetModelName();
 						Log.Trace( $"Shooting model: {modelToShoot}" );
 					}
 				}
